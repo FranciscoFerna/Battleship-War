@@ -95,7 +95,8 @@ body {
     padding: 20px;
     border: 1px solid rgba(56, 189, 248, 0.3);
     box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
-    backdrop-filter: blur(5px); /* Este es un filtro CSS que se aplica a todo lo que está detrás de un elemento,
+    backdrop-filter: blur(5px);
+    /* Este es un filtro CSS que se aplica a todo lo que está detrás de un elemento,
         no al propio elemento. */
     display: flex;
     flex-direction: column;
