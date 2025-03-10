@@ -18,3 +18,16 @@
     --black: #020617;
     --white: #f8fafc;
 }
+
+body {
+    background-color: var(--dark-blue);
+    background-image:
+        radial-gradient(circle at 20% 35%, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 75% 60%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
