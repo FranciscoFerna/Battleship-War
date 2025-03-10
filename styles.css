@@ -30,4 +30,49 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+    /* Ocultamos la barra de la derecha */
+}
+
+/* HEADER */
+.game-header {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.logo-container {
+    position: relative;
+    text-align: center;
+}
+
+.game-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+    /* Este bloque de código aplica un estilo llamativo al texto: 
+       1. Utiliza un gradiente lineal de izquierda a derecha que va de 'neon-blue' a 'light-blue'.
+       2. El gradiente se aplica solo al texto, no al fondo del contenedor, gracias a '-webkit-background-clip: text'.
+       3. El color del texto se hace transparente mediante '-webkit-text-fill-color: transparent', 
+          lo que permite que el gradiente se vea a través de las letras.
+       4. Se aplica una sombra difusa de color azul alrededor del texto (con un desenfoque de 8px y opacidad 0.5),
+          creando un efecto de resplandor suave sobre el texto. */
+    background: linear-gradient(to right, var(--neon-blue), var(--light-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+    /*  */
+}
+
+.game-subtitle {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    color: var(--gray);
+    margin-top: -5px;
 }
