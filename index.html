@@ -25,6 +25,104 @@
             <p class="game-subtitle">Hundir La Flota</p>
         </div>
      </header>
+
+     <!-- Game Container -->
+     <main class="game-container">
+        <!-- Panel con la informacion -->
+        <aside class="info-panel">
+            <section class="stats-container">
+                <h2 class="visually-hidden">Estadísticas de juego</h2>
+                <dl>
+                    <div class="stat-item">
+                        <dt>Disparos</dt>
+                        <dd class="stat-value">17</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt>Aciertos</dt>
+                        <dd class="stat-value">8</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt>Precisión</dt>
+                        <dd class="stat-value">47.1%</dd>
+                    </div>
+                    <div class="stat-item">
+                        <dt>Barcos hundidos</dt>
+                        <dd class="stat-value">1/5</dd>
+                    </div>
+                </dl>
+            </section>
+        
+            <section class="ship-status">
+                <h2 class="status-title">Estado de la flota</h2>
+                <ul class="ship-list">
+                    <li class="ship-item">
+                        <div class="ship-name">
+                            <span>Portaaviones</span>
+                            <span>3/5</span>
+                        </div>
+                        <div class="ship-health" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="3"
+                            aria-label="Estado del Portaaviones: 3 de 5 puntos de vida">
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment active"></span>
+                            <span class="health-segment active"></span>
+                            <span class="health-segment active"></span>
+                        </div>
+                    </li>
+                    <li class="ship-item">
+                        <div class="ship-name">
+                            <span>Acorazado</span>
+                            <span>2/4</span>
+                        </div>
+                        <div class="ship-health" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="2"
+                            aria-label="Estado del Acorazado: 2 de 4 puntos de vida">
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment active"></span>
+                            <span class="health-segment active"></span>
+                        </div>
+                    </li>
+                    <li class="ship-item">
+                        <div class="ship-name">
+                            <span>Crucero</span>
+                            <span>1/3</span>
+                        </div>
+                        <div class="ship-health" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="1"
+                            aria-label="Estado del Crucero: 1 de 3 puntos de vida">
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment active"></span>
+                        </div>
+                    </li>
+                    <li class="ship-item">
+                        <div class="ship-name">
+                            <span>Submarino</span>
+                            <span>0/3</span>
+                        </div>
+                        <div class="ship-health" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"
+                            aria-label="Estado del Submarino: 0 de 3 puntos de vida">
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment hit"></span>
+                        </div>
+                    </li>
+                    <li class="ship-item">
+                        <div class="ship-name">
+                            <span>Destructor</span>
+                            <span>0/2</span>
+                        </div>
+                        <div class="ship-health" role="progressbar" aria-valuemin="0" aria-valuemax="2" aria-valuenow="0"
+                            aria-label="Estado del Destructor: 0 de 2 puntos de vida">
+                            <span class="health-segment hit"></span>
+                            <span class="health-segment hit"></span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+
+        
+     </main>
 </body>
 
 </html>

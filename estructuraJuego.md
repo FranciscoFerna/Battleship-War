@@ -1,0 +1,69 @@
+# HTML
+# Game Container
+## main.game-container
+### aside.info-panel
+
+#### section.stats-container
+- h2.visually-hidden
+- dl
+  - div.stat-item
+    - dt
+    - dd.stat-value
+  - div.stat-item
+    - dt
+    - dd.stat-value
+  - div.stat-item
+    - dt
+    - dd.stat-value
+  - div.stat-item
+    - dt
+    - dd.stat-value
+
+#### section.ship-status
+- h2.status-title
+- ul.ship-list
+  - li.ship-item
+    - div.ship-name
+      - span
+      - span
+    - div.ship-health
+      - span.healt-segment.hit
+      - span.healt-segment.hit
+      - span.healt-segment.active
+      - span.healt-segment.active
+  - li.ship-item
+    - div.ship-name
+      - span
+      - span
+    - div.ship-health
+      - span.healt-segment.hit
+      - span.healt-segment.hit
+      - span.healt-segment.active
+      - span.healt-segment.active
+  - li.ship-item
+    - div.ship-name
+      - span
+      - span
+    - div.ship-health
+      - span.healt-segment.hit
+      - span.healt-segment.hit
+      - span.healt-segment.active
+      - span.healt-segment.active
+  - li.ship-item
+    - div.ship-name
+      - span
+      - span
+    - div.ship-health
+      - span.healt-segment.hit
+      - span.healt-segment.hit
+      - span.healt-segment.active
+      - span.healt-segment.active
+  - li.ship-item
+    - div.ship-name
+      - span
+      - span
+    - div.ship-health
+      - span.healt-segment.hit
+      - span.healt-segment.hit
+      - span.healt-segment.active
+      - span.healt-segment.active
