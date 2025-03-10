@@ -76,3 +76,107 @@ body {
     color: var(--gray);
     margin-top: -5px;
 }
+
+/* CONTENEDOR PRINCIPAL */
+.game.container {
+    width: 100%;
+    max-width: 1300px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    perspective: 1000px;
+}
+
+/* PANEL DE INFORMACION */
+.info-panel {
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+    backdrop-filter: blur(5px); /* Este es un filtro CSS que se aplica a todo lo que está detrás de un elemento,
+        no al propio elemento. */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 10px;
+    border-left: 3px solid var(--light-blue);
+}
+
+.stat-value {
+    font-weight: bold;
+    color: var(--neon-blue);
+}
+
+.ship-status {
+    margin-top: 15px;
+}
+
+.status-title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+}
+
+.ship-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ship-item {
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 10px;
+    padding: 10px;
+    border-left: 3px solid var(--neon-blue);
+}
+
+.ship-name {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.ship-health {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.health-segment {
+    height: 8px;
+    flex: 1;
+    background: rgba(56, 189, 248, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 0 10px;
+}
+
+.health-segment.active {
+    background: var(--neon-blue);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+.health-segment.hit {
+    background: var(--red);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+}
