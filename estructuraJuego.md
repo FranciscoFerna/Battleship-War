@@ -154,116 +154,125 @@
     - p.message-content
 
 # CSS
-# CSS
 
-## @import
-- `@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');`
 
-## Reset de Estilos
-- `*`: 
-    - `margin: 0;`
-    - `padding: 0;`
-    - `box-sizing: border-box;`
-    - `font-family: 'Rajdhani', 'Orbitron', sans-serif;`
+# Compatibilidad con `background-clip: text`
 
-## Variables CSS
-- `:root`: 
-    - `--dark-blue: #0a192f;`
-    - `--ocean-blue: #1e3a8a;`
-    - `--light-blue: #38bdf8;`
-    - `--neon-blue: #00f2ff;`
-    - `--red: #ef4444;`
-    - `--orange: #f97316;`
-    - `--gray: #94a3b8;`
-    - `--black: #020617;`
-    - `--white: #f8fafc;`
+En la versión anterior del código, solo teníamos la propiedad:
 
-## Cuerpo (Body)
-- `body`: 
-    - `background-color: var(--dark-blue);`
-    - `background-image: radial-gradient(...)`; (gradientes aplicados de forma radial)
-    - `color: var(--white);`
-    - `min-height: 100vh;`
-    - `display: flex; flex-direction: column; align-items: center;`
-    - `overflow-x: hidden;` (oculta la barra de desplazamiento horizontal)
+```css
+-webkit-background-clip: text;
+```
 
-## Estilos para el Header
-- `.game-header`: 
-    - `width: 100%;`
-    - `padding: 20px;`
-    - `display: flex; justify-content: center;`
-    - `position: relative;`
-    - `overflow: hidden;`
-    - `margin-bottom: 10px;`
+Esto es específico para navegadores basados en WebKit (como Safari y Chrome).
 
-- `.logo-container`: 
-    - `position: relative; text-align: center;`
+## Cambio realizado
 
-- `.game-title`: 
-    - `font-size: 3.5rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase;`
-    - `background: linear-gradient(to right, var(--neon-blue), var(--light-blue));`
-    - `-webkit-background-clip: text;`
-    - `-webkit-text-fill-color: transparent;`
-    - `filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));`
+Se agregó la línea:
 
-- `.game-subtitle`: 
-    - `font-size: 1.2rem; text-transform: uppercase; letter-spacing: 8px; color: var(--gray);`
-    - `margin-top: -5px;`
+```css
+background-clip: text;
+```
 
-## Estilos para el Contenedor Principal
-- `.game.container`: 
-    - `width: 100%; max-width: 1300px;`
-    - `display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 20px; padding: 20px;`
-    - `perspective: 1000px;`
+## Razón del cambio
 
-## Estilos para el Panel de Información
-- `.info-panel`: 
-    - `background: rgba(15, 23, 42, 0.8);`
-    - `border-radius: 15px; padding: 20px;`
-    - `border: 1px solid rgba(56, 189, 248, 0.3);`
-    - `box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);`
-    - `backdrop-filter: blur(5px);`
-    - `display: flex; flex-direction: column; gap: 20px;`
+Este cambio se hizo para mejorar la compatibilidad con navegadores. La razón es:
 
-- `.stats-container`: 
-    - `display: flex; flex-direction: column; gap: 10px;`
+- `-webkit-background-clip` es el prefijo específico para navegadores WebKit.
+- `background-clip` es la propiedad estándar que funciona en todos los navegadores modernos.
 
-- `.stat-item`: 
-    - `display: flex; justify-content: space-between; align-items: center;`
-    - `padding: 8px 10px; background: rgba(30, 41, 59, 0.6);`
-    - `border-radius: 10px; border-left: 3px solid var(--light-blue);`
+## Buenas prácticas
 
-- `.stat-value`: 
-    - `font-weight: bold; color: var(--neon-blue);`
+Es una buena práctica incluir tanto la versión con prefijo (`-webkit-`) como la versión estándar, ya que:
 
-## Estilos para el Estado de la Nave
-- `.ship-status`: 
-    - `margin-top: 15px;`
+1. **La versión con prefijo** asegura compatibilidad con versiones más antiguas de navegadores.
+2. **La versión estándar** funcionará en navegadores modernos y asegura compatibilidad futura.
 
-- `.status-title`: 
-    - `font-size: 1.2rem; text-transform: uppercase; color: var(--light-blue);`
-    - `margin-bottom: 15px; letter-spacing: 2px; text-align: center;`
-    - `text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);`
 
-- `.ship-list`: 
-    - `display: flex; flex-direction: column; gap: 15px;`
+Es similar a tener un **"plan B"**: si un navegador no entiende una versión, usará la otra.
 
-- `.ship-item`: 
-    - `background: rgba(30, 41, 59, 0.6); border-radius: 10px; padding: 10px;`
-    - `border-left: 3px solid var(--neon-blue);`
 
-- `.ship-name`: 
-    - `display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px;`
+# Radar Animado con CSS
 
-- `.ship-health`: 
-    - `display: flex; gap: 4px; margin-top: 8px;`
+## 1. Estructura Base
 
-- `.health-segment`: 
-    - `height: 8px; flex: 1; background: rgba(56, 189, 248, 0.3);`
-    - `border-radius: 4px; box-shadow: 0 0 10px;`
+Este es el contenedor principal del radar:
 
-- `.health-segment.active`: 
-    - `background: var(--neon-blue); box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);`
+- `position: absolute` lo posiciona de forma absoluta dentro de su contenedor padre.
+- `pointer-events: none` hace que no responda a eventos del mouse.
+- `overflow: hidden` oculta cualquier contenido que se salga del contenedor.
+- `border-radius: 15px` da esquinas redondeadas.
 
-- `.health-segment.hit`: 
-    - `background: var(--red); box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);`
+```css
+.radar {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: black;
+    pointer-events: none;
+}
+```
+
+## 2. Línea del Radar
+
+Crea la línea giratoria del radar:
+
+- Se posiciona en el centro usando `top: 50%` y `left: 50%`.
+- `transform-origin: center` establece el punto de rotación en el centro.
+- La animación `radar-sweep` hace que gire continuamente cada 4 segundos.
+
+```css
+.radar-line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--neon-blue));
+    transform-origin: center;
+    animation: radar-sweep 4s linear infinite;
+}
+```
+
+## 3. Efecto Visual de la Línea
+
+Crea el efecto visual de la línea del radar:
+
+- Usa un gradiente para crear el efecto de brillo.
+- `box-shadow` añade un resplandor neón.
+- La variable `--neon-blue` define el color del efecto.
+
+```css
+:root {
+    --neon-blue: rgba(0, 255, 255, 0.8);
+}
+
+.radar-line {
+    box-shadow: 0 0 10px var(--neon-blue);
+}
+```
+
+## 4. Animación
+
+Define cómo gira la línea del radar:
+
+- Comienza en `0deg` y gira hasta `360deg`.
+- `translate(-50%, -50%)` centra la línea.
+- `scale(1)` mantiene el tamaño constante.
+
+```css
+@keyframes radar-sweep {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg) scale(1);
+    }
+}
+```
+
+## Efecto Final
+
+El efecto final simula un radar girando, con una línea brillante que da una vuelta completa, similar a los radares que ves en películas o juegos.
