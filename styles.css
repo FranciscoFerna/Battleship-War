@@ -1,183 +1,238 @@
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Rajdhani', 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Rajdhani", "Orbitron", sans-serif;
 }
 
 :root {
-    --dark-blue: #0a192f;
-    --ocean-blue: #1e3a8a;
-    --light-blue: #38bdf8;
-    --neon-blue: #00f2ff;
-    --red: #ef4444;
-    --orange: #f97316;
-    --gray: #94a3b8;
-    --black: #020617;
-    --white: #f8fafc;
+  --dark-blue: #0a192f;
+  --ocean-blue: #1e3a8a;
+  --light-blue: #38bdf8;
+  --neon-blue: #00f2ff;
+  --red: #ef4444;
+  --orange: #f97316;
+  --gray: #94a3b8;
+  --black: #020617;
+  --white: #f8fafc;
+
+  --grid-size: 50px;
+  --grid-gap: 6px;
 }
 
 body {
-    background-color: var(--dark-blue);
-    background-image:
-        radial-gradient(circle at 20% 35%, rgba(29, 78, 216, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 75% 60%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-    color: var(--white);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    /* Ocultamos la barra de la derecha */
+  background-color: var(--dark-blue);
+  background-image: radial-gradient(
+      circle at 20% 35%,
+      rgba(29, 78, 216, 0.15) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 60%,
+      rgba(6, 182, 212, 0.1) 0%,
+      transparent 50%
+    );
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  /* Ocultamos la barra de la derecha */
 }
 
 /* HEADER */
 .game-header {
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 10px;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .logo-container {
-    position: relative;
-    text-align: center;
+  position: relative;
+  text-align: center;
 }
 
 .game-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin: 0;
-    /* Este bloque de código aplica un estilo llamativo al texto: 
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin: 0;
+  /* Este bloque de código aplica un estilo llamativo al texto:
        1. Utiliza un gradiente lineal de izquierda a derecha que va de 'neon-blue' a 'light-blue'.
        2. El gradiente se aplica solo al texto, no al fondo del contenedor, gracias a '-webkit-background-clip: text'.
-       3. El color del texto se hace transparente mediante '-webkit-text-fill-color: transparent', 
+       3. El color del texto se hace transparente mediante '-webkit-text-fill-color: transparent',
           lo que permite que el gradiente se vea a través de las letras.
        4. Se aplica una sombra difusa de color azul alrededor del texto (con un desenfoque de 8px y opacidad 0.5),
           creando un efecto de resplandor suave sobre el texto. */
-    background: linear-gradient(to right, var(--neon-blue), var(--light-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
-    /*  */
+  background: linear-gradient(to right, var(--neon-blue), var(--light-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.5));
+  /*  */
 }
 
 .game-subtitle {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    color: var(--gray);
-    margin-top: -5px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  color: var(--gray);
+  margin-top: -5px;
 }
 
 /* CONTENEDOR PRINCIPAL */
 .game.container {
-    width: 100%;
-    max-width: 1300px;
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 20px;
-    padding: 20px;
-    perspective: 1000px;
+  width: 100%;
+  max-width: 1300px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  perspective: 1000px;
 }
 
 /* PANEL DE INFORMACION */
 .info-panel {
-    background: rgba(15, 23, 42, 0.8);
-    border-radius: 15px;
-    padding: 20px;
-    border: 1px solid rgba(56, 189, 248, 0.3);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
-    backdrop-filter: blur(5px);
-    /* Este es un filtro CSS que se aplica a todo lo que está detrás de un elemento,
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+  backdrop-filter: blur(5px);
+  /* Este es un filtro CSS que se aplica a todo lo que está detrás de un elemento,
         no al propio elemento. */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .stats-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .stat-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 10px;
-    background: rgba(30, 41, 59, 0.6);
-    border-radius: 10px;
-    border-left: 3px solid var(--light-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 10px;
+  border-left: 3px solid var(--light-blue);
 }
 
 .stat-value {
-    font-weight: bold;
-    color: var(--neon-blue);
+  font-weight: bold;
+  color: var(--neon-blue);
 }
 
 .ship-status {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .status-title {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: var(--light-blue);
-    margin-bottom: 15px;
-    letter-spacing: 2px;
-    text-align: center;
-    text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--light-blue);
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
 }
 
 .ship-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .ship-item {
-    background: rgba(30, 41, 59, 0.6);
-    border-radius: 10px;
-    padding: 10px;
-    border-left: 3px solid var(--neon-blue);
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 10px;
+  padding: 10px;
+  border-left: 3px solid var(--neon-blue);
 }
 
 .ship-name {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .ship-health {
-    display: flex;
-    gap: 4px;
-    margin-top: 8px;
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
 }
 
 .health-segment {
-    height: 8px;
-    flex: 1;
-    background: rgba(56, 189, 248, 0.3);
-    border-radius: 4px;
-    box-shadow: 0 0 10px;
+  height: 8px;
+  flex: 1;
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  box-shadow: 0 0 10px;
 }
 
 .health-segment.active {
-    background: var(--neon-blue);
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+  background: var(--neon-blue);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
 }
 
 .health-segment.hit {
-    background: var(--red);
-    box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
 }
+
+/* TABLEROS */
+.boards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.radar-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: var(--light-blue);
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(58, 189, 248, 0.5);
+}
+
+.board-wrapper {
+  position: relative;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 15px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(5px);
+}
+
+.board-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(10, var(--grid-size));
+  grid-template-rows: repeat(10, var(--grid-size));
+  gap: var(--grid-gap);
+  position: relative;
+}
+
+
