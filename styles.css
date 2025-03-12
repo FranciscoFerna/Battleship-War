@@ -235,4 +235,41 @@ body {
   position: relative;
 }
 
+/* COORDENADAS */
+.coordinates {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 var(--grid-size);
+  margin-bottom: 5px;
+}
+
+.coordinates .label {
+  width: var(--grid-size);
+  text-align: center;
+  color: var(--light-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.row-coordinates {
+  position: absolute;
+  left: -5px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.row-coordinates .label {
+  height: var(--grid-size);
+  display: flex;
+  align-items: center;
+  color: var(--light-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
 
