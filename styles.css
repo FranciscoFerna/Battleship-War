@@ -88,7 +88,7 @@ body {
 }
 
 /* CONTENEDOR PRINCIPAL */
-.game.container {
+.game-container {
   width: 100%;
   max-width: 1300px;
   display: grid;
