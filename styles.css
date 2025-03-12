@@ -320,3 +320,60 @@ body {
       transform: translate(-50%, -50%) rotate(360deg) scale(1);
   }
 } */
+
+
+/* MENSAJES LOG */
+.message-log {
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 15px;
+  padding: 15px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);
+  backdrop-filter: blur(5px);
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.log-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--light-blue);
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow: 0 0 5px rgba(56, 189, 248, 0.5);
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: rgba(30,41,59, 0.6);
+  border-left: 3px solid var(--light-blue);
+  font-size: 0.9rem;
+}
+
+.message.system {
+  border-left-color: var(--light-blue);
+}
+
+.message.hit {
+  border-left-color: var(--red);
+}
+
+.message.miss {
+  border-left-color: var(--gray);
+}
+
+.message.sunk {
+  border-left-color: var(--orange);
+  background: rgba(249,115,22,0.1);
+}
+
+.message-time {
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-bottom: 2px;
+}
+
+
