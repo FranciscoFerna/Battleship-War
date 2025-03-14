@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digrama de Clases</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 700">
+        <!-- Clase Game Controller -->
+        <rect x="320" y="20" width="240" height="200" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="320" y1="50" x2="560" y2="50" stroke="#000" stroke-width="2"/>
+        <line x1="320" y1="130" x2="560" y2="130" stroke="#000" stroke-width="2"/>
+        <text x="390" y="40" font-family="Arial" font-size="16" font-weight="bold">GameController</text>
+        <text x="330" y="70" font-family="Arial" font-size="14">- playerBoard: Board</text>
+        <text x="330" y="90" font-family="Arial" font-size="14">- enemyBoard: Board</text>
+        <text x="330" y="110" font-family="Arial" font-size="14">- messageLog: MessageLog</text>
+        <text x="330" y="150" font-family="Arial" font-size="14">+ initGame()</text>
+        <text x="330" y="170" font-family="Arial" font-size="14">+ startNewGame()</text>
+        <text x="330" y="190" font-family="Arial" font-size="14">+ resetGame()</text>
+        <text x="330" y="210" font-family="Arial" font-size="14">+ updateStats()</text>
+        
+        <!-- Clase Board -->
+        <rect x="320" y="270" width="240" height="220" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="320" y1="300" x2="560" y2="300" stroke="#000" stroke-width="2"/>
+        <line x1="320" y1="400" x2="560" y2="400" stroke="#000" stroke-width="2"/>
+        <text x="410" y="290" font-family="Arial" font-size="16" font-weight="bold">Board</text>
+        <text x="330" y="320" font-family="Arial" font-size="14">- rows: Number</text>
+        <text x="330" y="340" font-family="Arial" font-size="14">- columns: Number</text>
+        <text x="330" y="360" font-family="Arial" font-size="14">- grid: Array&lt;Array&lt;Cell&gt;&gt;</text>
+        <text x="330" y="380" font-family="Arial" font-size="14">- ships: Array&lt;Ship&gt;</text>
+        <text x="330" y="420" font-family="Arial" font-size="14">+ createGrid()</text>
+        <text x="330" y="440" font-family="Arial" font-size="14">+ canPlaceShip(ship, row, col, isHorizontal)</text>
+        <text x="330" y="460" font-family="Arial" font-size="14">+ placeShip(ship, row, col, isHorizontal)</text>
+        <text x="330" y="480" font-family="Arial" font-size="14">+ receiveShot(row, col): ShotResult</text>
+        
+        <!-- Clase Ship -->
+        <rect x="600" y="270" width="240" height="220" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="600" y1="300" x2="840" y2="300" stroke="#000" stroke-width="2"/>
+        <line x1="600" y1="400" x2="840" y2="400" stroke="#000" stroke-width="2"/>
+        <text x="700" y="290" font-family="Arial" font-size="16" font-weight="bold">Ship</text>
+        <text x="610" y="320" font-family="Arial" font-size="14">- id: Number</text>
+        <text x="610" y="340" font-family="Arial" font-size="14">- name: String</text>
+        <text x="610" y="360" font-family="Arial" font-size="14">- size: Number</text>
+        <text x="610" y="380" font-family="Arial" font-size="14">- hits: Number</text>
+        <text x="610" y="420" font-family="Arial" font-size="14">+ getSize(): Number</text>
+        <text x="610" y="440" font-family="Arial" font-size="14">+ getName(): String</text>
+        <text x="610" y="460" font-family="Arial" font-size="14">+ hit(): void</text>
+        <text x="610" y="480" font-family="Arial" font-size="14">+ isSunk(): Boolean</text>
+        
+        <!-- Clase Cell -->
+        <rect x="40" y="270" width="240" height="220" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="40" y1="300" x2="280" y2="300" stroke="#000" stroke-width="2"/>
+        <line x1="40" y1="400" x2="280" y2="400" stroke="#000" stroke-width="2"/>
+        <text x="140" y="290" font-family="Arial" font-size="16" font-weight="bold">Cell</text>
+        <text x="50" y="320" font-family="Arial" font-size="14">- row: Number</text>
+        <text x="50" y="340" font-family="Arial" font-size="14">- col: Number</text>
+        <text x="50" y="360" font-family="Arial" font-size="14">- hasShip: Boolean</text>
+        <text x="50" y="380" font-family="Arial" font-size="14">- shipId: Number|null</text>
+        <text x="50" y="420" font-family="Arial" font-size="14">- isHit: Boolean</text>
+        <text x="50" y="440" font-family="Arial" font-size="14">+ getCoordinates(): {row, col}</text>
+        <text x="50" y="460" font-family="Arial" font-size="14">+ shoot(): ShotResult</text>
+        <text x="50" y="480" font-family="Arial" font-size="14">+ getState(): CellState</text>
+        
+        <!-- Clase UI Manager -->
+        <rect x="40" y="20" width="240" height="200" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="40" y1="50" x2="280" y2="50" stroke="#000" stroke-width="2"/>
+        <line x1="40" y1="110" x2="280" y2="110" stroke="#000" stroke-width="2"/>
+        <text x="120" y="40" font-family="Arial" font-size="16" font-weight="bold">UIManager</text>
+        <text x="50" y="70" font-family="Arial" font-size="14">- playerBoardElement: HTMLElement</text>
+        <text x="50" y="90" font-family="Arial" font-size="14">- enemyBoardElement: HTMLElement</text>
+        <text x="50" y="130" font-family="Arial" font-size="14">+ renderPlayerBoard(board)</text>
+        <text x="50" y="150" font-family="Arial" font-size="14">+ renderEnemyBoard(board)</text>
+        <text x="50" y="170" font-family="Arial" font-size="14">+ updateShipStatus(ships)</text>
+        <text x="50" y="190" font-family="Arial" font-size="14">+ updateStatistics(stats)</text>
+        <text x="50" y="210" font-family="Arial" font-size="14">+ setupEventListeners()</text>
+        
+        <!-- Clase MessageLog -->
+        <rect x="600" y="20" width="240" height="200" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="600" y1="50" x2="840" y2="50" stroke="#000" stroke-width="2"/>
+        <line x1="600" y1="110" x2="840" y2="110" stroke="#000" stroke-width="2"/>
+        <text x="690" y="40" font-family="Arial" font-size="16" font-weight="bold">MessageLog</text>
+        <text x="610" y="70" font-family="Arial" font-size="14">- logElement: HTMLElement</text>
+        <text x="610" y="90" font-family="Arial" font-size="14">- messages: Array&lt;Message&gt;</text>
+        <text x="610" y="130" font-family="Arial" font-size="14">+ addMessage(type, content)</text>
+        <text x="610" y="150" font-family="Arial" font-size="14">+ renderMessages()</text>
+        <text x="610" y="170" font-family="Arial" font-size="14">+ clear()</text>
+        <text x="610" y="190" font-family="Arial" font-size="14">+ getFormattedTime(): String</text>
+        
+        <!-- Enum ShotResult -->
+        <rect x="40" y="540" width="240" height="130" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="40" y1="570" x2="280" y2="570" stroke="#000" stroke-width="2"/>
+        <text x="120" y="560" font-family="Arial" font-size="16" font-weight="bold">ShotResult</text>
+        <text x="50" y="590" font-family="Arial" font-size="14">MISS</text>
+        <text x="50" y="610" font-family="Arial" font-size="14">HIT</text>
+        <text x="50" y="630" font-family="Arial" font-size="14">SUNK</text>
+        <text x="50" y="650" font-family="Arial" font-size="14">INVALID</text>
+        
+        <!-- Enum CellState -->
+        <rect x="320" y="540" width="240" height="130" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="320" y1="570" x2="560" y2="570" stroke="#000" stroke-width="2"/>
+        <text x="400" y="560" font-family="Arial" font-size="16" font-weight="bold">CellState</text>
+        <text x="330" y="590" font-family="Arial" font-size="14">EMPTY</text>
+        <text x="330" y="610" font-family="Arial" font-size="14">SHIP</text>
+        <text x="330" y="630" font-family="Arial" font-size="14">MISS</text>
+        <text x="330" y="650" font-family="Arial" font-size="14">HIT</text>
+        
+        <!-- Clase Message -->
+        <rect x="600" y="540" width="240" height="130" fill="#f0f0f0" stroke="#000" stroke-width="2"/>
+        <line x1="600" y1="570" x2="840" y2="570" stroke="#000" stroke-width="2"/>
+        <line x1="600" y1="630" x2="840" y2="630" stroke="#000" stroke-width="2"/>
+        <text x="700" y="560" font-family="Arial" font-size="16" font-weight="bold">Message</text>
+        <text x="610" y="590" font-family="Arial" font-size="14">- type: String</text>
+        <text x="610" y="610" font-family="Arial" font-size="14">- content: String</text>
+        <text x="610" y="650" font-family="Arial" font-size="14">+ getHTML(): String</text>
+        
+        <!-- Relaciones -->
+        <!-- GameController -> Board -->
+        <line x1="440" y1="220" x2="440" y2="270" stroke="#000" stroke-width="2"/>
+        <polygon points="440,270 435,260 445,260" fill="#000"/>
+        <text x="450" y="250" font-family="Arial" font-size="12">2</text>
+        
+        <!-- GameController -> MessageLog -->
+        <line x1="560" y1="120" x2="600" y2="120" stroke="#000" stroke-width="2"/>
+        <polygon points="600,120 590,115 590,125" fill="#000"/>
+        <text x="580" y="110" font-family="Arial" font-size="12">1</text>
+        
+        <!-- GameController -> UIManager -->
+        <line x1="320" y1="120" x2="280" y2="120" stroke="#000" stroke-width="2"/>
+        <polygon points="280,120 290,115 290,125" fill="#000"/>
+        <text x="290" y="110" font-family="Arial" font-size="12">1</text>
+        
+        <!-- Board -> Cell -->
+        <line x1="320" y1="380" x2="280" y2="380" stroke="#000" stroke-width="2"/>
+        <polygon points="280,380 290,375 290,385" fill="#000"/>
+        <text x="290" y="370" font-family="Arial" font-size="12">100</text>
+        
+        <!-- Board -> Ship -->
+        <line x1="560" y1="380" x2="600" y2="380" stroke="#000" stroke-width="2"/>
+        <polygon points="600,380 590,375 590,385" fill="#000"/>
+        <text x="580" y="370" font-family="Arial" font-size="12">0..*</text>
+        
+        <!-- MessageLog -> Message -->
+        <line x1="720" y1="220" x2="720" y2="540" stroke="#000" stroke-width="2"/>
+        <polygon points="720,540 715,530 725,530" fill="#000"/>
+        <text x="730" y="400" font-family="Arial" font-size="12">0..*</text>
+    </svg>
+</body>
+</html>

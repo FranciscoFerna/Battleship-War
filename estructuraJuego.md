@@ -276,3 +276,50 @@ Define cómo gira la línea del radar:
 ## Efecto Final
 
 El efecto final simula un radar girando, con una línea brillante que da una vuelta completa, similar a los radares que ves en películas o juegos.
+
+# Diagrama de Clases (SVG)
+
+## **Controlador del Juego**  
+**Propósito:** Coordina todos los componentes del juego y gestiona el estado del mismo.  
+- Mantiene referencias a los tableros de jugador/enemigo y los registros de mensajes.  
+- Contiene métodos para inicializar, iniciar, reiniciar el juego y actualizar las estadísticas.  
+
+## **Tablero**  
+**Propósito:** Representa un tablero de juego (cuadrícula).  
+- Gestiona la cuadrícula de celdas y la ubicación de los barcos.  
+- Contiene una matriz 2D de celdas y una matriz de barcos.  
+- Gestiona operaciones como la colocación de barcos y la recepción de disparos.  
+
+## **Barco**  
+**Propósito:** Representa un barco en el juego.  
+- Rastrea las propiedades del barco y su estado de daños.  
+- Mantiene propiedades como el tamaño, el nombre y el número de impactos.  
+- Proporciona métodos para comprobar si el barco está hundido.  
+
+## **Celda**  
+**Propósito:** Representa una sola celda en el tablero.  
+- Rastrea el estado de una posición específica de la cuadrícula (vacío, barco, impacto, fallo).  
+- Contiene coordenadas de ubicación e información sobre la presencia del barco.  
+- Gestiona la interacción con los disparos y proporciona información de estado.  
+
+## **UIManager**  
+**Propósito:** Gestiona la interfaz de usuario.  
+- Representa los tableros y gestiona las interacciones del usuario.  
+- Referencia elementos HTML y los actualiza.  
+- Configura detectores de eventos para las acciones del usuario.  
+
+## **MessageLog**  
+**Propósito:** Gestiona los mensajes del juego.  
+- Muestra información al jugador sobre los eventos del juego.  
+- Almacena y representa los mensajes por tipo.  
+- Proporciona marca de tiempo y formato.  
+
+## **ShotResult y CellState**  
+**Propósito:** Enumeraciones para el seguimiento de los estados del juego.  
+- Define los posibles resultados de los disparos y los estados de las celdas.  
+
+## **Relaciones en el diagrama**  
+- `GameController` gestiona dos instancias de `Tablero` (jugador y enemigo).  
+- Cada `Tablero` contiene varios objetos `Celda` (100 para una cuadrícula de 10x10).  
+- Los `Tablero` hacen referencia a objetos `Barco`.  
+- `MessageLog` contiene objetos `Message`.  
