@@ -2,6 +2,7 @@ const ShotResults = {
     MISS: "MISS",
     HIT: "HIT",
     SINK: "SINK",
+    INVALID: "INVALID",
 };
 
 const CellState = {
@@ -13,4 +14,3 @@ const CellState = {
 
 // Ejemplo de uso
 console.log(ShotResults.HIT)
-
