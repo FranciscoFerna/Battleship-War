@@ -1,4 +1,6 @@
-class Cell {
+import { ShotResults, CellState } from './Enums.js';
+
+export class Cell {
     constructor(row, col) {
         this.row = row;
         this.col = col;
@@ -9,27 +11,27 @@ class Cell {
 
     // Devolvemos las cordenadas de la celda
     getCordinates() {
-        return {row: this.row, col: this.col};
+        return { row: this.row, col: this.col };
     }
 
     // Procesa un disparo en esta celda y devuelve el resultado
     shoot() {
-        if(this.isHit) {
-            return ShotResults.INVALID // Ya ha sido disparada
+        if (this.isHit) {
+            return ShotResults.INVALID
         }
-        this.isHit = true;
-        if(this.hasShip) {
-            return ShotResults.HIT;
+        this.isHit = true
+        if (this.hasShip) {
+            return ShotResults.HIT
         } else {
-            return ShotResults.MISS;
+            return ShotResults.MISS
         }
     }
 
     getState() {
         if (!this.isHit) {
-            return this.hasShip ? CellState.SHIP : CellState.EMPTY;
+            return this.hasShip ? CellState.SHIP : CellState.EMPTY
         } else {
-            return this.hasShip ? CellState.HIT : CellState.MISS;
+            return this.hasShip ? CellState.HIT : CellState.MISS
         }
     }
 }

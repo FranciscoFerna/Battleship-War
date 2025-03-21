@@ -1,4 +1,4 @@
-class Ship {
+export class Ship {
     constructor(id, name, size) {
         this.id = id;
         this.name = name;
